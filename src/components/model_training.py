@@ -20,7 +20,7 @@ class ModelTrainingConfig:
     trained_model_file_path = os.path.join('artifacts', 'model.pkl')
 
 class ModelTrainer:
-    def __int__(self):
+    def __init__(self):
         self.model_trainer_config = ModelTrainingConfig()
 
 
@@ -56,10 +56,12 @@ class ModelTrainer:
                 results[scores] = model
 
             best_model_score = max(results.keys())
-            best_model = results[best_model_score]
+            best_model = models[results[best_model_score]]
 
             print("\n==========================================\n")
             logging.info(f"Best model is {best_model} with accuracy of {best_model_score*100}")
+            print(f"Best model is {best_model} with accuracy of {best_model_score * 100}")
+
 
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,

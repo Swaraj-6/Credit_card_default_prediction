@@ -21,7 +21,7 @@ class DataTransformationConfig:
     preprocessor_obj_file_path: str = os.path.join("artifacts", "preprocessor.pkl")
 
 class DataTransformation:
-    def __int__(self):
+    def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
     def get_data_transformation_obj(self):
@@ -45,7 +45,7 @@ class DataTransformation:
             categorical_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='most_frequent')),
-                    ('nominalencoder', OneHotEncoder(sparse=False, handle_unknown='ignore')),
+                    ('nominalencoder', OneHotEncoder(sparse_output=False, handle_unknown='ignore')),
                     ('scaler', StandardScaler())
                 ]
             )

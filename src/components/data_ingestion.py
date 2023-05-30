@@ -1,10 +1,13 @@
 import os
 import sys
+
+from src.logger import logging
+from src.exception import CustomException
+
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from dataclasses import dataclass
-from src.logger import logging
-from src.exception import CustomException
+
 
 # Initialize the data ingestion configuration
 

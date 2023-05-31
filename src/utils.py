@@ -28,3 +28,14 @@ def evaluate_model(y_true, y_pred):
     except Exception as e:
         logging.info("Exception occurred in evaluate_model function")
         raise CustomException(e, sys)
+
+
+def load_object(file_path):
+    try:
+
+        with open(file_path, "rb") as file_obj:
+            return pickle.load(file_obj)
+
+    except Exception as e:
+        logging.info("Exception occurred in loading object")
+        raise CustomException(e, sys)

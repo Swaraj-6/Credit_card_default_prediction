@@ -56,11 +56,13 @@ class ModelTrainer:
                 results[scores] = model
 
             best_model_score = max(results.keys())
-            best_model = models[results[best_model_score]]
+            best_model = results[best_model_score]
+            best_model_name = models[results[best_model_score]]
+
 
             print("\n==========================================\n")
-            logging.info(f"Best model is {best_model} with accuracy of {best_model_score*100}")
-            print(f"Best model is {best_model} with accuracy of {best_model_score * 100}")
+            logging.info(f"Best model is {best_model_name} with accuracy of {best_model_score*100}")
+            print(f"Best model is {best_model_name} with accuracy of {best_model_score * 100}")
 
 
             save_object(
@@ -69,14 +71,14 @@ class ModelTrainer:
             )
 
             return (
-                best_model,
+                best_model_name,
                 best_model_score
             )
 
 
         except Exception as e:
             logging.info("An exception has occurred in initiate_model_training")
-            CustomException(e,sys)
+            raise CustomException(e,sys)
 
 
 

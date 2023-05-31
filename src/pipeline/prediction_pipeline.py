@@ -6,33 +6,34 @@ from src.logger import logging
 from src.exception import CustomException
 
 import pandas as pd
+import numpy as np
 
 
 class CustomDataset:
     def __init__(self,
-                 LIMIT_BAL,
-                 SEX,
-                 EDUCATION,
-                 MARRIAGE,
-                 AGE,
-                 PAY_0,
-                 PAY_2,
-                 PAY_3,
-                 PAY_4,
-                 PAY_5,
-                 PAY_6,
-                 BILL_AMT1,
-                 BILL_AMT2,
-                 BILL_AMT3,
-                 BILL_AMT4,
-                 BILL_AMT5,
-                 BILL_AMT6,
-                 PAY_AMT1,
-                 PAY_AMT2,
-                 PAY_AMT3,
-                 PAY_AMT4,
-                 PAY_AMT5,
-                 PAY_AMT6
+                 LIMIT_BAL: float,
+                 SEX: int,
+                 EDUCATION: int,
+                 MARRIAGE: int,
+                 AGE: int,
+                 PAY_0: int,
+                 PAY_2: int,
+                 PAY_3: int,
+                 PAY_4: int,
+                 PAY_5: int,
+                 PAY_6: int,
+                 BILL_AMT1: float,
+                 BILL_AMT2: float,
+                 BILL_AMT3: float,
+                 BILL_AMT4: float,
+                 BILL_AMT5: float,
+                 BILL_AMT6: float,
+                 PAY_AMT1: float,
+                 PAY_AMT2: float,
+                 PAY_AMT3: float,
+                 PAY_AMT4: float,
+                 PAY_AMT5: float,
+                 PAY_AMT6: float
                  ):
         self.LIMIT_BAL = LIMIT_BAL
         self.SEX = SEX
@@ -88,6 +89,7 @@ class CustomDataset:
 
             df = pd.DataFrame(custom_data_input_dict)
             logging.info("DataFrame gathered")
+            print(df)
             return df
 
         except Exception as e:
@@ -111,7 +113,12 @@ class PredictPipeline:
             preprocessor = load_object(preprocessor_path)
             model = load_object(model_path)
 
-            data_scaled = preprocessor.tranform(features)
+            arr = np.array(features)
+            reshaped_arr = arr.reshape(1, -1)
+
+            print(reshaped_arr)
+
+            data_scaled = preprocessor.transform(reshaped_arr)
             prediction = model.predict(data_scaled)
 
             return prediction

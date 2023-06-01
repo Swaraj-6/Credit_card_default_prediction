@@ -75,7 +75,13 @@ def predict_datapoint():
         predict_pipeline = PredictPipeline()
         prediction = predict_pipeline.predict(data_frame)
 
-        return prediction.tolist()
+        result = prediction.tolist()
+        if result[0] == 1:
+            string = "This person will not pay credit next month"
+        else:
+            string = "This person will pay credit next month"
+
+        return render_template('form.html', final_result = string)
 
 
 if __name__ == "__main__":

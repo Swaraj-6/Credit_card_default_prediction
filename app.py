@@ -6,7 +6,7 @@ application = Flask(__name__)
 app = application
 
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == 'GET':
         return render_template('form.html')
@@ -48,11 +48,11 @@ def predict_datapoint():
         else:
             string = "This person will pay credit next month"
 
-        return render_template('form.html', final_result = string)
+        return render_template('result.html', final_result = string)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run()
 
 
 

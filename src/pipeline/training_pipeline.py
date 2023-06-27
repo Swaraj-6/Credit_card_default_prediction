@@ -33,8 +33,8 @@ class TrainingPipeline:
 
 
 
-# if __name__ == '__main__':
-#     obj = TrainingPipeline()
-#     obj.model_train()
+if __name__ == '__main__':
+    obj = TrainingPipeline()
+    obj.model_train()
 
 

@@ -5,6 +5,10 @@
 
 The problem at hand is to develop a predictive model that can accurately predict whether a credit card holder is likely to default on their payments in the near future. Predicting credit card defaults is crucial for financial institutions to assess the risk associated with extending credit and make informed decisions about lending.
 
+## Deployment:
+This project was deployed on aws using aws-beanstalk but had to take it down due to many reasons so it is deployed on render.com
+[Link](https://credit-default-prediction.onrender.com)
+
 ## Dataset: 
 
 This provided dataset contains information on default payments, demographic factors, credit data, history of payment, and bill statements of credit card clients in Taiwan from April 2005 to September 2005.

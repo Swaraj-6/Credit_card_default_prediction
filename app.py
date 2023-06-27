@@ -48,11 +48,11 @@ def predict_datapoint():
         else:
             string = "This person will pay credit next month"
 
-        return render_template('result.html', final_result = string)
+        return render_template('result.html', final_result=string)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 

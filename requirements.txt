@@ -2,6 +2,6 @@ pandas
 Flask
 numpy
 seaborn
-scikit-learn==1.2.2
+scikit-learn==1.2.1
 gunicorn
 -e .

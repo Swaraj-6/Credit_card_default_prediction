@@ -56,7 +56,10 @@ try:
         else:
             string = "This person will pay credit next month"
 
+        print(string)
+
         return render_template('result.html', final_result=string)
+    
 
 except Exception as e:
     logging.info("An exception has occured in prediction route.")
